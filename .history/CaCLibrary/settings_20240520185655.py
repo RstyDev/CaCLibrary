@@ -15,9 +15,9 @@ from dotenv import load_dotenv,get_key
 from pathlib import Path
 
 dotenv_path = Path(".env")
-user = get_key(dotenv_path, "USER", encoding="utf-8")
-password = get_key(dotenv_path, "PASSWORD", encoding="utf-8")
-key = get_key(dotenv_path, "SECRET_KEY", encoding="utf-8")
+user = get_key(dotenv_path, "USER", encoding="latin1")
+password = get_key(dotenv_path, "PASSWORD", encoding="latin1")
+key = get_key(dotenv_path, "SECRET_KEY", encoding="latin1")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
