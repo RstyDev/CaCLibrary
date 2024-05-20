@@ -15,9 +15,9 @@ from dotenv import load_dotenv,get_key
 from pathlib import Path
 
 dotenv_path = Path(".env")
-user = get_key(dotenv_path, "USER", encoding="utf-8")
-password = get_key(dotenv_path, "PASSWORD", encoding="utf-8")
-key = get_key(dotenv_path, "SECRET_KEY", encoding="utf-8")
+user = get_key(dotenv_path, "USER")
+password = get_key(dotenv_path, "PASSWORD")
+key = get_key(dotenv_path, "SECRET_KEY")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'CaCLibrary.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": "localhost",
-        "PORT": "5432",
-        "NAME": "library",
-        "USER": user,
-        "PASSWORD": password,
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'NAME': 'library',
+        'USER': user,
+        'PASSWORD': password,
     }
 }
 # DATABASES = {
