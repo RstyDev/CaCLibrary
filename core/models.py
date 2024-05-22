@@ -8,6 +8,13 @@ class Libro(models.Model):
     editorial = models.CharField(max_length=10)
     anio = models.IntegerField()
     
+    def __init__(self,titulo,autor,genero,editorial,anio):
+        self.titulo = titulo
+        self.autor = autor
+        self.genero = genero
+        self.editorial = editorial
+        self.anio = anio
+
 class Cliente(models.Model):
     nombre = models.CharField(max_length=20)
     dni = models.IntegerField()
