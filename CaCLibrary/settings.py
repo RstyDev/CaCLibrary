@@ -85,8 +85,8 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
         'NAME': 'library',
-        'USER': user,
-        'PASSWORD': password,
+        'USER': 'postgres',
+        'PASSWORD': 'baca7536baca',
     }
 }
 # DATABASES = {
