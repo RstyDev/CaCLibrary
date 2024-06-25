@@ -1,6 +1,8 @@
 {% extends "core/base.html" %}
 
-{% block title %}LibreriaCAC{% endblock%}
+{% block title %}LibreriaCAC{% endblock %}
 {% block main %}
-<h2 class="index">Bienvenidos a LibreriaCAC</h2>
-{% endblock%}
+    {% if user.is_authenticated %}
+    <h2 class="index">Bienvenid@ a LibreriaCAC {{ user.username }}</h2>
+    {% endif %}
+{% endblock %}
