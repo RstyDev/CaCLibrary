@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from .forms import *
 from .models import Libro, Cliente, Pedido
+import datetime
 
 # Create your views here.
 # def index(request):
@@ -20,7 +21,10 @@ from .models import Libro, Cliente, Pedido
 #     return render(request, "core/pages/get_libros.html",context)
 
 def index(request):
-    return render(request, 'core/index.html')
+    contexto = {
+        'fecha_hora': datetime.datetime.now()
+    }
+    return render(request, 'core/index.html', contexto)
 
 def user_logout(request):
     logout(request)
