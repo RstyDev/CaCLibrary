@@ -1,0 +1,59 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Listado de Libros{% endblock %}
+{% block main %}
+<h2>Listado de Libros</h2>
+<section class="a">
+    <div class="row">
+        <div class="column" style="width: 50px;">
+            <p class="italic">ID:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">ISBN:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Titulo:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Autor:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Precio:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Acciones:</p>
+        </div>
+    </div>
+    {% for libro in libros %}
+    <div class="row">
+        <div class="column" style="width: 50px;">
+            <p class="bold">{{ libro.id }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ libro.ISBN }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ libro.titulo }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ libro.autor }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ libro.precio }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <a href="{% url 'modificar_libro' libro.id %}" class="button"><i class="fa-solid fa-arrow-rotate-right"></i> Modificar Libro</a>
+            <a href="{% url 'eliminar_libro' libro.id %}" class="button"><i class="fa-solid fa-trash-can"></i> Eliminar Libro</a>
+        </div>
+    </div>
+    {% empty %}
+    <div class="info">
+        <p>No Hay Libros Cargados :(</i></p>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'crear_libro' %}" class="button"><i class="fa-solid fa-pen-to-square"></i> Crear Libro</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Listado de Clientes{% endblock %}
+{% block main %}
+<h2>Listado de Clientes</h2>
+<section class="a">
+    <div class="row">
+        <div class="column" style="width: 50px;">
+            <p class="italic">ID:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">DNI:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Nombre:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Apellido:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Email:</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="italic">Acciones:</p>
+        </div>
+    </div>
+    {% for cliente in Clientes %}
+    <div class="row">
+        <div class="column" style="width: 50px;">
+            <p class="bold">{{ cliente.id }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ cliente.dni }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ cliente.nombre }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ cliente.apellido }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <p class="bold">{{ cliente.email }}</p>
+        </div>
+        <div class="column" style="width: 300px;">
+            <a href="{% url 'modificar_cliente' cliente.id %}" class="button"><i class="fa-solid fa-arrow-rotate-right"></i> Modificar cliente</a>
+            <a href="{% url 'eliminar_cliente' cliente.id %}" class="button"><i class="fa-solid fa-trash-can"></i> Eliminar cliente</a>
+        </div>
+    </div>
+    {% empty %}
+    <div class="info">
+        <p>No Hay Clientes Cargados :(</p>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'crear_cliente' %}" class="button"><i class="fa-solid fa-pen-to-square"></i> Crear Cliente</a>
+    </div>
+</section>
+{% endblock %}

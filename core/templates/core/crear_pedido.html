@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+
+{% block title %}Crear Pedido{% endblock %}
+{% block main %}
+<h2>Crear Pedido</h2>
+<form method="POST" action="{% url 'crear_pedido' %}" class="form">
+    {% csrf_token %}
+    {{ crear_pedido_form.as_p }}
+    <input type="submit" class="submit">
+</form>
+{% endblock %}

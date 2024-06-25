@@ -72,19 +72,94 @@ main{
     padding-top: 68px;
 }
 
+
+.a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 0.5px solid #909090;
+}
+
+
+.fa-solid{
+    font-size: 17.5px;
+    color: white;
+    padding-right: 5px;
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #7F28F2;
+    padding: 0px 5px;
+    margin: 5px 0px;
+    border-radius: 2.5px;
+}
+
+
+.info p{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 50px;
+    color: #7F28F2;
+}
+
+.face-sad-tear{
+    background-color: #7F28F2;
+}
+
+
+
 .index{
     font-size: 50px;
 }
 
-.italic{
-    font-style: italic;
+.username{
+    text-transform: uppercase;
+    font-size: 50px;
+    color: #7F28F2;
 }
 
-.bold{
-    font-weight: bold;
-    height: 46px;
-    border-bottom: 1px solid #f0f0f0;
+.login{
+    background-color: green;
+    padding: 7.5px 15px; margin: 0px 10px;
+    border-radius: 10px;
 }
+
+.logout{
+    background-color: red;
+    padding: 7.5px 15px; margin: 0px 10px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+.italic{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 .form p{
     display: flex;
@@ -100,13 +175,21 @@ main{
     font-weight: bold;
 }
 
+label{
+    width: 300px;
+    padding: 5px 10px;
+    margin: 5px;
+}
 
-
-
+.field{
+    width: 300px;
+    margin: 5px;
+    padding: 5px 10px;
+}
 
 
 .submit{
-    background-color: #5C60FF;
+    background-color: #7F28F2;
     border: none;
     color: white;
     padding: 5px 10px;
