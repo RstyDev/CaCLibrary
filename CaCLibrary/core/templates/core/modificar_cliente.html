@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Modificar Cliente{% endblock %}
+{% block main %}
+<h2>Modificar Cliente</h2>
+<form method="POST" class="form">
+    {% csrf_token %}
+    {{ modificar_cliente_form.as_p }}
+    <input type="submit" class="submit">
+</form>
+{% endblock %}

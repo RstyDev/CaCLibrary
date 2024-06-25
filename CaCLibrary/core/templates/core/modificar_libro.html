@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Modificar Libro{% endblock %}
+{% block main %}
+<h2>Modificar Libro</h2>
+<form method="POST" class="form">
+    {% csrf_token %}
+    {{ modificar_libro_form.as_p }}
+    <input type="submit" class="submit">
+</form>
+{% endblock %}

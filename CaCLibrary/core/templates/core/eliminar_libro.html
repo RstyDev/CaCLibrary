@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+
+{% block title %}Crear Libro{% endblock %}
+{% block main %}
+<h2>Crear Libro</h2>
+<p>¿Estás seguro de que deseas eliminar el libro "{{ libro.titulo }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'listado_libros' %}">Volver a la lista de libros</a>
+{% endblock %}
