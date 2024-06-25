@@ -21,6 +21,7 @@
 {% csrf_token %}
 <table>
 <tr>
+<<<<<<< HEAD
     <td><label for="">{{ form.username.label_tag }}</label></td>
     <td class="field">{{ form.username }}</td>
 </tr>
@@ -31,6 +32,18 @@
 </table>
 
 <input type="submit" value="Login" class="submit">
+=======
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login">
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
 <input type="hidden" name="next" value="{{ next }}">
 </form>
 

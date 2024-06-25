@@ -4,6 +4,7 @@
 {% block title %}Listado de Clientes{% endblock %}
 {% block main %}
 <h2>Listado de Clientes</h2>
+<<<<<<< HEAD
 <section class="a">
     <div class="row">
         <div class="column" style="width: 50px;">
@@ -54,6 +55,31 @@
     {% endfor %}
     <div>
         <a href="{% url 'crear_cliente' %}" class="button"><i class="fa-solid fa-pen-to-square"></i> Crear Cliente</a>
+=======
+<section class="books">
+    {% for cliente in Clientes %}
+    <div class="book">
+        <p class="italic">ID:</p>
+        <p class="bold">{{ cliente.id }}</p>
+        <p class="italic">DNI:</p>
+        <p class="bold">{{ cliente.dni }}</p>
+        <p class="italic">Nombre:</p>
+        <p class="bold">{{ cliente.nombre }}</p>
+        <p class="italic">Apellido:</p>
+        <p class="bold">{{ cliente.apellido }}</p>       
+        <p class="italic">Email:</p>
+        <p class="bold">{{ cliente.email }}</p>
+        <a href="{% url 'modificar_cliente' cliente.id %}">Modificar Cliente</a>
+        <a href="{% url 'eliminar_cliente' cliente.id %}">Eliminar Cliente</a>
+    </div>
+    {% empty %}
+    <div>
+        <p>No hay Clientes cargados</p>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'crear_cliente' %}">Crear Cliente</a>
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     </div>
 </section>
 {% endblock %}

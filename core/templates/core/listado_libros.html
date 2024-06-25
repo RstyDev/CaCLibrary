@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 {% load static %}
 
+<<<<<<< HEAD
 {% block title %}Listado de Libros{% endblock %}
 {% block main %}
 <h2>Listado de Libros</h2>
@@ -54,6 +55,38 @@
     {% endfor %}
     <div>
         <a href="{% url 'crear_libro' %}" class="button"><i class="fa-solid fa-pen-to-square"></i> Crear Libro</a>
+=======
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'core/styles/listado.css' %}">
+{% endblock %}
+
+{% block title %}Listado de Libros{% endblock %}
+{% block main %}
+<h2>Listado de Libros</h2>
+<section class="row">
+    {% for libro in libros %}
+    <div>
+        <p class="italic">ID:</p>
+        <p class="bold">{{ libro.id }}</p>
+        <p class="italic">ISBN:</p>
+        <p class="bold">{{ libro.ISBN }}</p>
+        <p class="italic">Titulo:</p>
+        <p class="bold">{{ libro.titulo }}</p>
+        <p class="italic">Autor:</p>
+        <p class="bold">{{ libro.autor }}</p>       
+        <p class="italic">Precio:</p>
+        <p class="bold">{{ libro.precio }}</p>
+        <a href="{% url 'modificar_libro' libro.id %}">Modificar Libro</a>
+        <a href="{% url 'eliminar_libro' libro.id %}">Eliminar Libro</a>
+    </div>
+    {% empty %}
+    <div>
+        <p>No hay libros cargados</p>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'crear_libro' %}">Crear Libro</a>
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     </div>
 </section>
 {% endblock %}

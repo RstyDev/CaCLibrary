@@ -3,6 +3,10 @@
 {% block title %}LibreriaCAC{% endblock %}
 {% block main %}
     {% if user.is_authenticated %}
+<<<<<<< HEAD
     <h2 class="index">Bienvenid@ a LibreriaCAC <span class="username">{{ user.username }}</span></h2>
+=======
+    <h2 class="index">Bienvenid@ a LibreriaCAC {{ user.username }}</h2>
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     {% endif %}
 {% endblock %}

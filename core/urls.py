@@ -19,5 +19,10 @@ urlpatterns = [
     path('modificar_cliente/<int:cliente_id>/', views.modificar_cliente, name='modificar_cliente'),
     path('eliminar_cliente/<int:cliente_id>/', views.eliminar_cliente, name='eliminar_cliente'),
     
+<<<<<<< HEAD
     path('listado_pedidos', views.PedidosListView.as_view(), name='listado_pedidos')
+=======
+    path('listado_pedidos', views.PedidosListView.as_view(), name='listado_pedidos'),
+    path('crear_pedido', views.crear_pedido, name='crear_pedido'),
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
 ]

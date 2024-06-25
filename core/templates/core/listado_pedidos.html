@@ -4,9 +4,33 @@
 {% block title %}Listado de Pedidos{% endblock %}
 {% block main %}
 <h2>Listado de Pedidos</h2>
+<<<<<<< HEAD
 <section>
     <div class="info">
         <p>No Hay Pedidos Cargados :(</p>
+=======
+<section class="column">
+    {% for pedido in pedidos %}
+    <div>
+        <p class="italic">ID:</p>
+        <p class="bold">{{ pedido.id }}</p>
+        <p class="italic">pedido:</p>
+        <p class="bold">{{ pedido.cliente }}</p>
+        <p class="italic">Libro:</p>
+        <p class="bold">{{ pedido.libro }}</p>
+        <p class="italic">Fecha de Pedido:</p>
+        <p class="bold">{{ pedido.fehaPedido }}</p>       
+        <p class="italic">Cantidad :</p>
+        <p class="bold">{{ pedido.cantidad }}</p>
+    </div>
+    {% empty %}
+    <div>
+        <p>No hay Pedidos cargados</p>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'crear_pedido' %}">Crear Pedido</a>
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     </div>
 </section>
 {% endblock %}

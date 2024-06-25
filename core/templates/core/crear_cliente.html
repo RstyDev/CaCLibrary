@@ -2,10 +2,19 @@
 
 {% block title %}Crear Cliente{% endblock %}
 {% block main %}
+<<<<<<< HEAD
     <h2>Crear Cliente</h2>
     <form method="POST" action="{% url 'crear_cliente' %}" class="form">
         {% csrf_token %}
         {{ crear_cliente_form.as_p }}
         <input type="submit" class="submit">
     </form>
+=======
+<h2>Crear Cliente</h2>
+<form method="POST" action="{% url 'crear_cliente' %}" class="form">
+    {% csrf_token %}
+    {{ crear_cliente_form.as_p }}
+    <input type="submit" class="submit">
+</form>
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
 {% endblock %}

@@ -3,6 +3,10 @@ from django.core.exceptions import ValidationError
 from .models import Libro, Cliente, Pedido
 
 class CrearLibroForm(forms.Form):
+<<<<<<< HEAD
+=======
+    id = forms.IntegerField(label="Ingresa el ID", required=True, widget=forms.TextInput(attrs={"class":"field"}))
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     ISBN = forms.IntegerField(label="Ingresa el ISBN", required=True, widget=forms.TextInput(attrs={"class":"field"}))
     titulo = forms.CharField(label="Ingresa el Título", required=True, widget=forms.TextInput(attrs={"class":"field"}))
     autor = forms.CharField(label="Ingresa el Autor", required=True, widget=forms.TextInput(attrs={"class":"field"}))
@@ -40,6 +44,10 @@ class ModificarLibroModelForm(forms.ModelForm):
 
 
 class CrearClienteForm(forms.Form):
+<<<<<<< HEAD
+=======
+    id = forms.IntegerField(label="Ingresa el ID", required=True, widget=forms.TextInput(attrs={"class":"field"}))
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     dni = forms.IntegerField(label="Ingresa el DNI", required=True, widget=forms.TextInput(attrs={"class":"field"}))
     nombre = forms.CharField(label="Ingresa el Nombre", required=True, widget=forms.TextInput(attrs={"class":"field"}))
     apellido = forms.CharField(label="Ingresa el Apellido", required=True, widget=forms.TextInput(attrs={"class":"field"}))
@@ -80,4 +88,18 @@ class ModificarClienteModelForm(forms.ModelForm):
     def clean_apellido(self):
         if not self.cleaned_data["apellido"].isalpha():
             raise ValidationError("❌El Apellido solo puede estar contener letras")
+<<<<<<< HEAD
         return self.cleaned_data["apellido"]
+=======
+        return self.cleaned_data["apellido"]
+
+
+
+class CrearPedidoForm(forms.Form):
+    id = forms.IntegerField(label="Ingresa el ID", required=True, widget=forms.TextInput(attrs={"class":"field"}))
+    pedido = forms.CharField(label="Ingresa el Pedido", required=True, widget=forms.TextInput(attrs={"class":"field"}))
+    cliente = forms.CharField(label="Ingresa el Cliente", required=True, widget=forms.TextInput(attrs={"class":"field"}))
+    libro = forms.CharField(label="Ingresa el Libro", required=True, widget=forms.TextInput(attrs={"class":"field"}))    
+    fechaPedido = forms.DateField(label="Ingresa la Fecha del Pedido", required=True, widget=forms.TextInput(attrs={"class":"field"}))
+    cantidad = forms.IntegerField(label="Ingresa la Cantidad", required=True, widget=forms.TextInput(attrs={"class":"field"}))
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b

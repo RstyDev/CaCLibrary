@@ -5,6 +5,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from .forms import *
 from .models import Libro, Cliente, Pedido
+<<<<<<< HEAD
+=======
+import datetime
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
 
 # Create your views here.
 # def index(request):
@@ -20,8 +24,17 @@ from .models import Libro, Cliente, Pedido
 #     return render(request, "core/pages/get_libros.html",context)
 
 def index(request):
+    contexto = {
+        'fecha_hora': datetime.datetime.now()
+    }
+    return render(request, 'core/index.html', contexto)
+
+def user_logout(request):
+    logout(request)
+    messages.success(request, '✔️Sesión Cerrada con ÉXITO')
     return render(request, 'core/index.html')
 
+<<<<<<< HEAD
 def user_logout(request):
     logout(request)
     messages.success(request, '✔️Sesión Cerrada con ÉXITO')
@@ -92,6 +105,73 @@ def listado_libros(request):
     # ]
     # books_sorted = sorted(libros, key=lambda x: x['nombre'])
 
+=======
+def listado_libros(request):
+    # libros = [
+    #     {
+    #         'imagen': 'core/images/Cien Años de Soledad - Gabriel García Márquez.webp',
+    #         'nombre': 'Cien Años de Soledad ',
+    #         'autor': 'Gabriel García Márquez',
+    #         'precio': '1.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/Cincuenta Sombras de Grey - E. L. James.webp',
+    #         'nombre': 'Cincuenta Sombras de Grey',
+    #         'autor': 'E. L. James',
+    #         'precio': '2.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/Diario de Ana Frank - Ana Frank.webp',
+    #         'nombre': 'Diario de Ana Frank',
+    #         'autor': 'Ana Frank',
+    #         'precio': '3.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/Don Quijote de la Mancha - Miguel de Cervantes.webp',
+    #         'nombre': 'Don Quijote de la Mancha',
+    #         'autor': 'Miguel de Cervantes',
+    #         'precio': '4.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/El Código Da Vinci - Dan Brown.webp',
+    #         'nombre': 'El Código Da Vinci',
+    #         'autor': 'Dan Brown',
+    #         'precio': '5.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/El Principito - Antoine de Saint-Exupéry.webp',
+    #         'nombre': 'El Principito',
+    #         'autor': 'Antoine de Saint-Exupéry',
+    #         'precio': '6.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/El Psicoanalista - John Katzenbach.webp',
+    #         'nombre': 'El Psicoanalista',
+    #         'autor': 'John Katzenbach',
+    #         'precio': '7.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/Harry Potter y la Piedra Filosofal - J. K. Rowling.webp',
+    #         'nombre': 'Harry Potter y la Piedra Filosofal',
+    #         'autor': 'J. K. Rowling',
+    #         'precio': '8.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/Rayuela - Julio Cortázar.webp',
+    #         'nombre': 'Rayuela',
+    #         'autor': 'Julio Cortázar',
+    #         'precio': '9.000'
+    #     },
+    #     {
+    #         'imagen': 'core/images/Romeo y Julieta - William Shakespeare.webp',
+    #         'nombre': 'Romeo y Julieta',
+    #         'autor': 'William Shakespeare',
+    #         'precio': '10.000'
+    #     }
+    # ]
+    # books_sorted = sorted(libros, key=lambda x: x['nombre'])
+
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     # contexto = {
     #     'libros': books_sorted,
     # }
@@ -131,7 +211,11 @@ def modificar_libro(request, libro_id):
         if form.is_valid():
             form.save()
             messages.success(request, '✔️El Libro fue modificado con ÉXITO')
+<<<<<<< HEAD
             return redirect('listado_libros')  # Or redirect to a specific list view
+=======
+            return redirect('libros')  # Or redirect to a specific list view
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     return render(request, 'core/modificar_libro.html', contexto)
 
 def eliminar_libro(request, libro_id):
@@ -139,7 +223,11 @@ def eliminar_libro(request, libro_id):
     if request.method == "POST":
         libro.delete()
         messages.success(request, '✔️El Libro fue eliminado con ÉXITO')
+<<<<<<< HEAD
         return redirect('listado_libros')
+=======
+        return redirect('libros')
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
     contexto = {'libro': libro}
     return render(request, 'core/eliminar_libro.html', contexto)
 
@@ -149,7 +237,11 @@ class ClientesListView(ListView):
     model = Cliente
     context_object_name='Clientes'
     template_name='core/listado_clientes.html'
+<<<<<<< HEAD
     ordering=['id']
+=======
+    ordering=['dni']
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b
 
 def crear_cliente(request):
     contexto = {}
@@ -198,3 +290,26 @@ class PedidosListView(ListView):
     context_object_name='Pedido'
     template_name='core/listado_pedidos.html'
     ordering=['id']
+<<<<<<< HEAD
+=======
+
+def crear_pedido(request):
+    contexto = {}
+    if request.method == "GET":
+        contexto['crear_pedido_form'] = CrearPedidoForm()
+    else:
+        form = CrearPedidoForm(request.POST)
+        contexto['crear_pedido_form'] =  form
+        if  form.is_valid(): 
+            nuevo_pedido = Pedido(
+                pedido = form.cleaned_data['pedido'],
+                cliente = form.cleaned_data['cliente'],
+                libro = form.cleaned_data['libro'],
+                fechaPedido= form.cleaned_data['fechaPedido'],
+                cantidad = form.cleaned_data['cantidad']
+            )
+            nuevo_pedido.save()
+            messages.success(request, '✔️El Pedido fue creado con ÉXITO')
+            return redirect('listado_pedidos')
+    return render(request, 'core/crear_pedido.html', contexto)
+>>>>>>> 160abb9fe1466c2f9be5777c6ddafefea10af58b

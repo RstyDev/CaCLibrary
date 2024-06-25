@@ -86,7 +86,7 @@ DATABASES = {
         'PORT': '5432',
         'NAME': 'library',
         'USER': 'postgres',
-        'PASSWORD': '1234',
+        'PASSWORD': 'baca7536baca',
     }
 }
 # DATABASES = {
